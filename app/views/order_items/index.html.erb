@@ -1,0 +1,35 @@
+<h2> Current cart </h2>
+
+<table class="table">
+    <thead>
+        <tr class="table-primary">
+            <td>Product</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+    <% @items.each do |item| %>
+        <tr>
+            <td class="table-warning"><%= item.product.title %></td>
+            <td class="table-danger"><%= number_to_indian_currency(item.product.price) %></td>
+            <td class="table-success"><%= item.quantity %></td>
+            <td class="table-dark">
+                <%= form_for item, method: :delete do |f| %>
+                    <%= f.submit "Remove" %>
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4" align="right">
+                <h2><%= number_to_indian_currency(current_cart.sub_total) %></h2>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+<%= link_to 'Checkout', checkout_path, class: 'btn btn-success' %>

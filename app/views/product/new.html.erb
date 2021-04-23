@@ -1,0 +1,22 @@
+<h1>Add new Product</h1>
+
+<%= form_tag :action => 'create' do %>
+
+<p><label for = "product_title", class="col-sm-2 col-form-label col-form-label-sm">Title</label>:
+<%= text_field 'products', 'title', :class => "col-sm-2" %></p>
+
+<p><label for = "product_price", class="col-sm-2 col-form-label col-form-label-sm">Price</label>:
+<%= text_field 'products', 'price', :class => "col-sm-2" %></p>
+
+<p><label for = "product_category_id", class="col-sm-2 col-form-label col-form-label-sm">Category</label>:
+<%= collection_select(:products, :category_id, @categories, :id, :name, prompt: true) %></p>
+
+<p><label for = "product_description", class="col-sm-2 col-form-label col-form-label-sm">Description</label>:
+<%= text_area 'products', 'description' %></p>
+
+<%= submit_tag "Create", class: "btn btn-primary" %>
+
+<% end -%>
+<br/>
+
+<%= link_to 'Back', {:action => 'list'}, class: "btn btn-info "%>

@@ -1,0 +1,16 @@
+<h1><%= @category.name -%></h1>
+
+<ul>
+   <% @category.products.each do |c| %>
+   <%# <li><%= link_to c.title, :action => "show", :controller => 'product', :id => c.id -%>
+  <li><%= c.title %> 
+
+  <%= form_tag order_items_path do %>
+   <%= hidden_field_tag :product_id, c.id %>
+   <%= number_field_tag :quantity, 1 %>
+   <%= submit_tag "Add To Cart" %>
+  <% end %>
+  </li>
+  
+   <% end %>
+</ul>

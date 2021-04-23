@@ -1,0 +1,10 @@
+<h2> Categories </h2>
+
+
+<ol id = "categories"> 
+
+   <% Category.all.each do |c| %>
+   <li><button type="button"><%= link_to c.name, :action => "show", :controller => 'categories', :id => c.id %></button></li>
+   <% end %>
+   
+</ol>
