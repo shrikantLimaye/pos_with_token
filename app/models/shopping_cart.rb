@@ -12,7 +12,7 @@ class ShoppingCart
         end
     end
 
-    def add_item(product_id:, quantity:1)
+    def add_item(product_id:, quantity:)
         product = Product.find(product_id)
 
         order_item = order.items.find_or_create_by(
@@ -20,7 +20,13 @@ class ShoppingCart
         )
         
         order_item.price = product.price
-        order_item.quantity = quantity
+        # order_item.quantity = quantity
+        
+        if order_item.quantity > 1
+            order_item.quantity += quantity.to_i
+        else
+            order_item.quantity = quantity.to_i
+        end
 
         ActiveRecord::Base.transaction do
             order_item.save
