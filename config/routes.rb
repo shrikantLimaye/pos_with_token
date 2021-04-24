@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'product#list'
+  root to: 'product#mainpage'
   get 'product/show'
   get 'product/new'
   get 'product/create'
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'categories/show'
   post 'categories/show'
   get 'product/page'
+  get 'product/list'
 
   get '/cart', to: 'order_items#index'
   resources :order_items, path: '/cart/items'
