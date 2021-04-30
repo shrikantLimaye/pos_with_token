@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
     <%= link_to "BBD POS", root_path, class: 'nav-link' %>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <%# <div class="collapse navbar-collapse" id="navbarNav"> %>
       <ul class="navbar-nav">
       <% if user_signed_in? %>
         <li class="nav-item">
@@ -20,6 +20,6 @@
         <% end %>
       
       </ul>
-    </div>
+    <%# </div> %>
   </div>
 </nav>
