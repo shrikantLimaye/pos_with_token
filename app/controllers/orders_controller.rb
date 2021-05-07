@@ -43,7 +43,7 @@ class OrdersController < ApplicationController
     def show_orderitems
         
         @order = Order.find(params[:id])
-        @feedback = @order.feedback
+        
     end
 
     private

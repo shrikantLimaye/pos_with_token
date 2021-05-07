@@ -8,8 +8,9 @@
 <p><label for = "feedback_description">Description</label>:
 <%= text_area 'feedbacks', 'description' %></p>
 
-<%= collection_select(:order, :order_id, Order.all, :id, :first_name, prompt:true) %>
-
+<% @order.each do |c|%>
+<%= hidden_field_tag :order_id, c.id %>
+<%end%>
 <%= submit_tag "Create", class: "btn btn-primary" %>
 
 <% end %>
