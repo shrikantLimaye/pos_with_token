@@ -12,13 +12,24 @@
   </head>
 
   <body>
-  <div class="container">
-  <p>
-  <%= render 'layouts/navbar' %>
-  </p>
-  <div class="container-fluid">
-    <%= yield %>
-    </div>
+    <div class="container-fluid">
+      <%= render 'layouts/navbar' %>
+        <div class="row">
+          <div class="container col-sm-8">
+            <%= yield %>
+          </div>
+          <div class="col-sm-4" >
+            
+            <div style="text-align: center; height: 575px; padding: 25px 50px 50px 25px; border-style: solid;">
+              
+              <h3>Today's Date : <%= Time.now.strftime("%m/%d/%Y") %> </h3>
+              <%# <div class="time-container">
+                  <%# <%= render inline: @time %>
+              <%# </div> %> 
+              
+            </div>
+          </div>
+        </div>
     </div>
   </body>
 </html>

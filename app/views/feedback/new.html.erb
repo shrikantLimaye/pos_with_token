@@ -1,0 +1,15 @@
+<h1> New Feedback </h1>
+
+<%= form_tag(:action => "create")  do %>
+
+<p><label for = "feedback_title">Title</label>:
+<%= text_field 'feedbacks', 'title' %></p>
+
+<p><label for = "feedback_description">Description</label>:
+<%= text_area 'feedbacks', 'description' %></p>
+
+<%= collection_select(:order, :order_id, Order.all, :id, :first_name, prompt:true) %>
+
+<%= submit_tag "Create", class: "btn btn-primary" %>
+
+<% end %>

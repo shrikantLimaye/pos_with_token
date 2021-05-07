@@ -1,0 +1,35 @@
+
+
+<h2>Order ID <%= @order.id%> : Order Items  </h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr class="table-primary">
+            <td>Product</td>
+            <td>Price</td>
+            <td>Quantity</td>
+        </tr>
+    </thead>
+    <tbody>
+   
+    <% @order.items.each do |item| %>
+        <tr>
+            <td class="table-warning"><%= item.product.title %></td>
+            <td class="table-danger"><%= number_to_indian_currency(item.product.price) %></td>
+            <td class="table-success"><%= item.quantity %></td>
+        </tr>
+    <% end %>
+    
+    </tbody>
+</table>
+    <div class="row">
+            <div class="col">
+                <h3><%= link_to 'Back', cart_list_path %></h3>
+            </div>
+            <div colspan="4" align="right">
+                <h2>Subtotal: <%= number_to_indian_currency(@order.sub_total) %></h2>
+            </div>
+    </div>
+
+
+

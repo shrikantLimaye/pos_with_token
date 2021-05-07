@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg bg-light" style="margin: 0 !important;">
   <div class="container-fluid">
   <%= image_tag 'BBD.png', style:"height: 60px; display:inline-block; padding: 0px"%>
     
     <div class="container">
-    <%= link_to "BBD POS", root_path, class: 'nav-link' %>
+    <%= link_to "BBD POS", product_mainpage_path, class: 'nav-link' %>
     <%# <div class="collapse navbar-collapse" id="navbarNav"> %>
       <ul class="navbar-nav">
       <% if user_signed_in? %>

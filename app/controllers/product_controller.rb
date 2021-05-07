@@ -2,6 +2,7 @@ class ProductController < ApplicationController
       
       def list
         @products = Product.all
+        # @time = Time.now.strftime("%H:%M:%S ")
       end
     
       def page
@@ -55,5 +56,10 @@ class ProductController < ApplicationController
       def delete
         Product.find(params[:id]).destroy
         redirect_to :action => 'list'
+      end
+
+      def get_time
+        @time = Time.now.strftime("%H:%M:%S ")
+        render partial: 'date'
       end
 end

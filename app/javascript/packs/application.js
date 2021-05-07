@@ -14,3 +14,4 @@ ActiveStorage.start()
 import "bootstrap"
 import "../stylesheets/application"
 global.$ = jQuery
+require("packs/product")
