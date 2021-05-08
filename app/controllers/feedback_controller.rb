@@ -2,7 +2,7 @@ class FeedbackController < ApplicationController
 
 
     def new
-        @feedback  =  @order.Feedback.new
+        @feedback  =  Feedback.new
         @order = Order.all
     end
 
@@ -13,8 +13,8 @@ class FeedbackController < ApplicationController
     def create
         # render plain: feedback_params.inspect
         @order = Order.find(params[:order_id])
-        render plain: @order.inspect
-        @feedback = @order.feedback(feedback_params)
+        # render plain: @order.id.inspect
+        @feedback = Feedback.order.new(feedback_params)
         @feedback.save
         redirect_to cart_list_path
     end
