@@ -11,24 +11,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
   <body>
     <div class="container-fluid">
-      <%= render 'layouts/navbar' %>
+          <%= render 'layouts/navbar' %>
         <div class="row">
-          <div class="container col-sm-8">
-            <%= yield %>
-          </div>
-          <div class="col-sm-4" >
-            
-            <div style="text-align: center; height: 575px; padding: 25px 50px 50px 25px; border-style: solid;">
-              
-              <h3>Today's Date : <%= Time.now.strftime("%m/%d/%Y") %> </h3>
-              <%# <div class="time-container">
-                  <%# <%= render inline: @time %>
-              <%# </div> %> 
-              
+            <div class="col-sm-8 p-3">
+              <%= yield %>
             </div>
-          </div>
+      <%= render 'layouts/todaystime' %>
         </div>
     </div>
   </body>

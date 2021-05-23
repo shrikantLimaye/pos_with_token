@@ -24,29 +24,19 @@
 </table>
     <div class="row">
             <div class="col">
-                <h3><%= link_to 'Back', cart_list_path %></h3>
+                <h3><%= link_to 'Back', cart_list_path, class: "btn btn-light" %></h3>
             </div>
             <div colspan="4" align="right">
                 <h2>Subtotal: <%= number_to_indian_currency(@order.sub_total) %></h2>
             </div>
     </div>
+    <div class="card">
+        <% @feedbacks.each do |feedback| %>
+            <h3><%= feedback.title %><h3>
+           <p> <%= simple_format feedback.description%> </p>
+        <%end%>
+    </div>
+    
 
-<div>
-<h1> New Feedback </h1>
-
-<%= form_tag(:action => "create", :controller => "feedback")  do %>
-
-<p><label for = "feedback_title">Title</label>:
-<%= text_field 'feedbacks', 'title' %></p>
-
-<p><label for = "feedback_description">Description</label>:
-<%= text_area 'feedbacks', 'description' %></p>
-
-
-<%= hidden_field_tag :order_id, @order.id %>
-
-<%= submit_tag "Create", class: "btn btn-primary" %>
-
-<% end %>
-</div>
+<%= render partial: "orders/form" %>
 

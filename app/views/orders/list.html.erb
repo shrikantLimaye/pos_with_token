@@ -1,3 +1,12 @@
+   <div>
+        <% if !flash[:notice].blank? %>
+            <div class="notice">
+                <%= flash[:notice] %>
+            </div>
+        <%end%>
+    </div>
+
+
 <h2>List Of Orders</h2>
 
 <table class="table table-bordered">

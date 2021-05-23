@@ -1,0 +1,18 @@
+<div>
+<h2> New Feedback </h2>
+
+<%= form_tag(:action => "create", :controller => "feedbacks")  do %>
+
+<p><label for = "feedback_title">Title</label>:
+<%= text_field 'feedback', 'title' %></p>
+
+<p><label for = "feedback_description">Description</label>:
+<%= text_area 'feedback', 'description' %></p>
+
+
+<%= hidden_field_tag :order_id, @order.id %>
+
+<%= submit_tag "Create", class: "btn btn-primary" %>
+
+<% end %>
+</div>

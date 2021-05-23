@@ -1,0 +1,15 @@
+<%= form_for @feedback do |form| %>
+
+<%= form.hidden_field :order_id, value: @order.id %>
+<p><%= label_tag :order_id, class: "col-sm-2 col-form-label col-form-label-sm" %>
+<%= form.select(:feedback, :order_id, @order.id) %></p>
+
+<p><%= label_tag :title %>
+<%= form.text_field :title %></p>
+
+<p><%= label_tag  :description %>
+<%= form.text_area :description %></p>
+
+<%= form.submit "Create", class: "btn btn-primary" %>
+
+<% end %>

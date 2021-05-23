@@ -1,5 +1,11 @@
 class Order < ApplicationRecord
-    has_many :items, class_name: 'OrderItem'
-    belongs_to :feedback
+    validates_presence_of :order_id, :first_name, :last_name
+
+    has_many :items, class_name: 'OrderItem', dependent: :delete_all
     
+    has_many :feedbacks
+    
+
+
+
 end
