@@ -31,9 +31,7 @@ class FeedbacksController < ApplicationController
             @order = Order.find(params[:order_id])
             flash[:notice] = 'I was not able to save the feedback!'
             render cart_show_orderitems_path
-            # byebug
-            # Show the errors on page in an error block
-            # notices / alerts / flash
+           
         end
     end
 

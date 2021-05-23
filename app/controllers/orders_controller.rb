@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
     def create
         @order = current_cart.order
 
-        if @order.update(order_params.merge(status: 'paid'))
+        if @order.update(order_params.merge(status: 'open'))
             session[:cart_token] = nil
 
             redirect_to product_mainpage_path
